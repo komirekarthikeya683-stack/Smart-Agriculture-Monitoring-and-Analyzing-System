@@ -1,0 +1,16 @@
+import pandas as pd
+
+# Load dataset
+df = pd.read_csv("farm_data.csv")
+
+# Basic EDA
+print("Dataset:\n", df)
+
+print("\nAverage Moisture:", df["Moisture"].mean())
+print("Average Temperature:", df["Temperature"].mean())
+
+# Find dry fields (low moisture)
+dry_fields = df[df["Moisture"] < 50]
+
+print("\nFields needing irrigation:")
+print(dry_fields["Field"])
