@@ -1,0 +1,18 @@
+import re
+
+# Sample text data
+text = "Soil moisture is LOW!! Need water 123."
+
+# Cleaning function
+def clean_text(text):
+    text = text.lower()                  # convert to lowercase
+    text = re.sub(r'\d+', '', text)      # remove numbers
+    text = re.sub(r'[^\w\s]', '', text)  # remove punctuation
+    text = text.strip()                  # remove extra spaces
+    return text
+
+# Apply cleaning
+cleaned = clean_text(text)
+
+print("Original Text:", text)
+print("Cleaned Text:", cleaned)
