@@ -1,0 +1,41 @@
+# File Cleaning Toolkit Project
+
+# Function to clean each line
+def clean_line(line):
+    line = line.strip()          # remove extra spaces
+    line = line.replace(" ", "") # remove all spaces
+    return line
+
+# Function to read and clean file
+def load_data(filename):
+    fields = []
+    moisture = []
+
+    with open(filename, "r") as file:
+        for line in file:
+            clean = clean_line(line)
+            name, value = clean.split(",")
+            fields.append(name)
+            moisture.append(int(value))
+
+    return fields, moisture
+
+
+# ---- Main Program ----
+fields, moisture = load_data("data.txt")
+
+print("Cleaned Data:")
+for i in range(len(fields)):
+    print(fields[i], ":", moisture[i])
+
+# Calculate average
+avg = sum(moisture) / len(moisture)
+print("\nAverage Moisture:", avg)
+
+# Recommendation
+print("\nAnalysis:")
+for i in range(len(moisture)):
+    if moisture[i] < 50:
+        print(fields[i], "-> Irrigation needed")
+    else:
+        print(fields[i], "-> Good condition")
