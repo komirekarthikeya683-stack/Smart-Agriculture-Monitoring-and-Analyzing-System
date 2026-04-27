@@ -1,0 +1,25 @@
+import json
+
+# Load data
+with open("farm.json", "r") as file:
+    data = json.load(file)
+
+print("Field Data:")
+for f in data["fields"]:
+    print(f["name"], "-", f["moisture"], "-", f["status"])
+
+# Add new field
+new_field = {"name": "Field3", "moisture": 40, "status": "Low"}
+data["fields"].append(new_field)
+
+# Analyze fields
+print("\nAnalysis:")
+for f in data["fields"]:
+    if f["moisture"] < 50:
+        print(f["name"], "-> Irrigation needed")
+    else:
+        print(f["name"], "-> Good condition")
+
+# Save updated data
+with open("farm.json", "w") as file:
+    json.dump(data, file, indent=4)
