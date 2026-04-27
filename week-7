@@ -1,0 +1,23 @@
+# Employee Salary Processor
+
+employees = [
+    {"name": "Rahul", "salary": 20000},
+    {"name": "Anita", "salary": 25000},
+    {"name": "Ravi", "salary": 18000}
+]
+
+total = 0
+
+# Calculate total salary
+for e in employees:
+    total += e["salary"]
+
+# Average salary
+average = total / len(employees)
+
+# Highest salary
+highest = max(employees, key=lambda x: x["salary"])
+
+print("Total Salary:", total)
+print("Average Salary:", average)
+print("Highest Paid Employee:", highest["name"], "-", highest["salary"])
