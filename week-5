@@ -1,0 +1,23 @@
+# Student Data Aggregator
+
+students = [
+    {"name": "Rahul", "marks": 80},
+    {"name": "Anita", "marks": 90},
+    {"name": "Ravi", "marks": 70}
+]
+
+total = 0
+
+# Calculate total marks
+for s in students:
+    total += s["marks"]
+
+# Average marks
+average = total / len(students)
+
+# Highest marks
+top = max(students, key=lambda x: x["marks"])
+
+print("Total Marks:", total)
+print("Average Marks:", average)
+print("Top Student:", top["name"], "-", top["marks"])
