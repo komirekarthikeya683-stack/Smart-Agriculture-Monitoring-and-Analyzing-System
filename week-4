@@ -1,0 +1,19 @@
+from collections import Counter
+import re
+
+# Sample text data
+text = "Tomato crop has pest. Tomato needs water. Wheat crop is good."
+
+# Clean text
+text = text.lower()
+text = re.sub(r'[^\w\s]', '', text)
+
+# Convert to words
+words = text.split()
+
+# Count frequency
+count = Counter(words)
+
+print("Entity Frequency:")
+for word, freq in count.items():
+    print(word, ":", freq)
