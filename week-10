@@ -1,0 +1,24 @@
+# Rule-Based Recommender System for Agriculture
+
+fields = [
+    {"name": "Field1", "moisture": 30, "temperature": 35, "pest": False},
+    {"name": "Field2", "moisture": 70, "temperature": 28, "pest": True},
+    {"name": "Field3", "moisture": 55, "temperature": 30, "pest": False}
+]
+
+print("Smart Agriculture Recommendations:\n")
+
+for f in fields:
+    print("Field:", f["name"])
+
+    # Rule-based decisions
+    if f["pest"]:
+        print("-> Recommendation: Use pesticide")
+    elif f["moisture"] < 50:
+        print("-> Recommendation: Irrigation needed")
+    elif f["temperature"] > 32:
+        print("-> Recommendation: High temperature, monitor crops")
+    else:
+        print("-> Recommendation: Good condition")
+
+    print()
