@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+
+fields = []
+moisture = []
+
+# Read and clean log file
+with open("farm_log.txt", "r") as file:
+    for line in file:
+        data = line.strip().split(",")
+        fields.append(data[0])
+        moisture.append(int(data[1]))
+
+# Analyze data
+avg = sum(moisture) / len(moisture)
+print("Average Moisture:", avg)
+
+# Find low moisture fields
+print("Fields needing irrigation:")
+for i in range(len(moisture)):
+    if moisture[i] < 50:
+        print(fields[i])
+
+# Plot graph
+plt.bar(fields, moisture)
+plt.xlabel("Fields")
+plt.ylabel("Moisture")
+plt.title("Soil Moisture Analysis")
+plt.show()
