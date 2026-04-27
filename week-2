@@ -1,0 +1,17 @@
+# Smart Agriculture - Weather Data Calculator
+
+temperature = 37   # current temperature (°C)
+rainfall = 5       # rainfall (mm)
+
+# Simple weather score
+weather_score = (temperature * 0.6) + (rainfall * 0.4)
+
+print("Weather Score:", weather_score)
+
+# Decision rules
+if rainfall < 10:
+    print("Recommendation: Irrigation needed")
+elif temperature > 35:
+    print("Recommendation: High temperature - monitor crops")
+else:
+    print("Recommendation: Good weather for crops")
