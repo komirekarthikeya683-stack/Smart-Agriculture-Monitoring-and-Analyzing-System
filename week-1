@@ -1,0 +1,27 @@
+
+# Smart Agriculture - System Log Analyzer
+
+file = open("system_log.txt", "r")
+
+low_count = 0
+pest_count = 0
+
+for line in file:
+    log = line.strip().lower()
+    print("Log:", log)
+
+    if "moisture low" in log:
+        print("Alert: Irrigation needed")
+        low_count += 1
+    elif "pest" in log:
+        print("Alert: Pest control needed")
+        pest_count += 1
+    else:
+        print("Status: Normal")
+
+    print()
+
+file.close()
+
+print("Total Low Moisture Fields:", low_count)
+print("Total Pest Affected Fields:", pest_count)
